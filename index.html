@@ -1,1 +1,271 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Leorix MC Store</title>
+
+<link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background: linear-gradient(#020617, #020617),
+  url('https://i.imgur.com/9QZ7Z6F.png');
+  background-size: cover;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Background glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(168,85,247,0.1) 10%, transparent 10%);
+  background-size: 60px 60px;
+  animation: move 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes move {
+  from {transform: translate(0,0);}
+  to {transform: translate(-120px,-120px);}
+}
+
+/* Navbar */
+.navbar {
+  text-align: center;
+  padding: 20px;
+}
+
+/* LOGO SHINE EFFECT */
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.banner {
+  width: 320px;
+  filter: drop-shadow(0 0 15px #a855f7);
+  transition: 0.3s;
+}
+
+/* Shine animation */
+.logo-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* Hover glow on logo */
+.logo-container:hover .banner {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 25px #ec4899);
+}
+
+/* Title */
+.title {
+  font-size: 40px;
+  font-family: 'Minecraft';
+  background: linear-gradient(90deg,#a855f7,#ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.tab {
+  padding: 10px 20px;
+  background: #1e293b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab:hover {
+  background: #a855f7;
+  box-shadow: 0 0 15px #a855f7;
+}
+
+/* Sections */
+.section {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.active {
+  display: block;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 220px;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(30,41,59,0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(168,85,247,0.4);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(236,72,153,1);
+}
+
+/* Button */
+.btn {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: linear-gradient(90deg,#a855f7,#ec4899);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px #ec4899;
+  transform: scale(1.05);
+}
+
+/* Price */
+.price {
+  color: #f472b6;
+}
+
+/* PARTICLES */
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #a855f7;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: fade 0.6s linear;
+}
+
+@keyframes fade {
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* Payment */
+.payment {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+  <!-- LOGO -->
+  <div class="logo-container">
+    <img src="logo.png" class="banner">
+  </div>
+
+  <div class="title">Leorix MC</div>
+
+  <div class="tabs">
+    <div class="tab" onclick="openTab('ranks')">Ranks</div>
+    <div class="tab" onclick="openTab('tags')">Tags</div>
+    <div class="tab" onclick="openTab('coins')">Coins</div>
+  </div>
+
+</div>
+
+<!-- RANKS -->
+<div id="ranks" class="section active">
+  <h2>👑 Ranks</h2>
+  <div class="cards">
+    <div class="card"><h3>Prime</h3><div class="price">₹99</div><button class="btn">Buy</button></div>
+    <div class="card"><h3>Mythic</h3><div class="price">₹199</div><button class="btn">Buy</button></div>
+    <div class="card"><h3>Leorix+</h3><div class="price">₹299</div><button class="btn">Buy</button></div>
+  </div>
+</div>
+
+<!-- TAGS -->
+<div id="tags" class="section">
+  <h2>🏷️ Tags</h2>
+  <div class="cards">
+    <div class="card"><h3>Meow</h3><div class="price">₹29</div><button class="btn">Buy</button></div>
+    <div class="card"><h3>Toy</h3><div class="price">₹39</div><button class="btn">Buy</button></div>
+    <div class="card"><h3>Deadly</h3><div class="price">₹49</div><button class="btn">Buy</button></div>
+  </div>
+</div>
+
+<!-- COINS -->
+<div id="coins" class="section">
+  <h2>🪙 Coins</h2>
+  <div class="cards">
+    <div class="card"><h3>100 Coins</h3><div class="price">₹50</div><button class="btn">Buy</button></div>
+    <div class="card"><h3>500 Coins</h3><div class="price">₹200</div><button class="btn">Buy</button></div>
+    <div class="card"><h3>1000 Coins</h3><div class="price">₹350</div><button class="btn">Buy</button></div>
+  </div>
+</div>
+
+<!-- PAYMENT -->
+<div class="payment">
+  <h2>💳 Payment Methods</h2>
+  <p>UPI • Paytm • PhonePe • Debit/Credit Card</p>
+</div>
+
+<script>
+function openTab(tab) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+}
+
+/* PARTICLE EFFECT */
+document.addEventListener("mousemove", function(e) {
+  let p = document.createElement("div");
+  p.className = "particle";
+  document.body.appendChild(p);
+
+  p.style.left = e.pageX + "px";
+  p.style.top = e.pageY + "px";
+
+  setTimeout(() => {
+    p.remove();
+  }, 600);
+});
+</script>
+
+</body>
+</html>
